@@ -1,22 +1,15 @@
 import Link from "next/link";
-import { Pokemon } from "../types";
-
-async function fetchPokemon() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-  const json = await response.json();
-
-  return json.results as Pokemon[];
-}
+import { fetchPokemonList } from "../services/pokemon";
 
 export default async function Home() {
-  const pokemon = await fetchPokemon();
+  const names = await fetchPokemonList();
 
   return (
     <main>
       <ul>
-        {pokemon.map((p) => (
-          <li key={p.name}>
-            <Link href={`/pokemon/${p.name}`}>{p.name}</Link>
+        {names.map((name) => (
+          <li key={name}>
+            <Link href={`/pokemon/${name}`}>{name}</Link>
           </li>
         ))}
       </ul>
