@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { fetchPokemonByName } from "../../../services/pokemon";
+import { fetchPokemonByName } from "../../services/pokemon";
 
 interface Props {
   params: {

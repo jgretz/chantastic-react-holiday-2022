@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { fetchPokemonByName } from "../../../services/pokemon";
+import { fetchPokemonByName } from "../../services/pokemon";
 
 interface Props {
   params: {
