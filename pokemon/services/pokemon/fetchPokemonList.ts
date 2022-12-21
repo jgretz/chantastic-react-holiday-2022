@@ -1,3 +1,8 @@
+type RequestObject = {
+  limit?: number;
+  offset?: number;
+};
+
 type ResponseObject = {
   count: number;
   results: {
@@ -5,7 +10,9 @@ type ResponseObject = {
   }[];
 };
 
-export async function fetchPokemonList(limit = 20, offset = 0) {
+export async function fetchPokemonList(query?: RequestObject) {
+  const { limit = 20, offset = 0 } = query || {};
+
   const response = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
   );

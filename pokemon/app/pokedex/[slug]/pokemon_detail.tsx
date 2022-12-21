@@ -1,16 +1,17 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { fetchPokemonByName } from "../../services/pokemon";
+import { fetchPokemonByName } from "../../../services/pokemon";
 
 interface Props {
-  params: {
-    name: string;
-  };
+  name?: string;
 }
 
-export default async function Page({ params: { name } }: Props) {
-  const pokemon = await fetchPokemonByName(name);
+export default async function PokemonDetail({ name }: Props) {
+  if (!name) {
+    return <></>;
+  }
 
+  const pokemon = await fetchPokemonByName(name);
   if (!pokemon) {
     return notFound();
   }

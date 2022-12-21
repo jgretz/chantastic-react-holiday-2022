@@ -1,9 +1,13 @@
-import PokemonList from "./(shared)/pokemon_list";
+import Link from "next/link";
 
-export default async function Home() {
+export default function Page() {
   return (
     <main>
-      <PokemonList />
+      <ul>
+        <li>
+          <Link href="/pokedex">Pokedex</Link>
+        </li>
+      </ul>
     </main>
   );
 }
