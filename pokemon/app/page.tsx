@@ -1,13 +1,5 @@
-import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return (
-    <main>
-      <ul>
-        <li>
-          <Link href="/pokedex">Pokedex</Link>
-        </li>
-      </ul>
-    </main>
-  );
+  redirect("/pokedex/bulbasaur");
 }
